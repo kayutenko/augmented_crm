@@ -1,0 +1,1086 @@
+<html>
+	
+	<head>
+		
+		<style>
+			.shortTitle {
+			margin: 10px 15px 4px;
+			font-size: 20;
+			color: #5b5a5f;
+			}
+			.longtext {
+			margin: 10px 15px;
+			}
+			#namePepson{
+			display: block;
+			margin-top: 10px;
+			font-size: 13px;
+			}
+			.modal-body.pb-2 li {
+			padding: 4px;
+			font-size: 14px;
+			list-style-type: none;
+			}
+			.modal-body.pb-2 ul {
+			padding-inline-start: 20px;
+			}
+			.modal-body.pb-2 ul li {
+			padding-top: 4px;
+			font-size: 13px;
+			list-style-type: none;
+			}
+			.nav li a {
+			font-weight: 600;
+			font-size: 11px;
+			text-transform: uppercase;
+			padding: 0px!important;
+			cursor: pointer!important;
+			}
+			li.active a {
+			border-bottom: 2px solid #55c57a;
+			}
+			li.active>a, .nav>li.active>a:focus, .nav>li.active>a:hover {
+			color: #000;
+			background-color: #ffffff!important;
+			}
+			
+			.contentProduct {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			cursor: pointer;
+			}
+			.row-1 {
+			display: flex;
+			font-size: 12px;
+			margin: 3px 0;
+			}
+			.col-1 {
+			width: 80px;
+			}
+			.vertical-timeline-element-content:hover div[aria-expanded="false"] .activitiesTime:before{
+			content: "\f078"
+			}
+			
+			.vertical-timeline-element-content:hover div[aria-expanded="true"] .activitiesTime:before {
+			content: "\f077"
+			}
+			
+			.CursorPointer {
+			cursor: pointer;
+			}
+			.activitiesTime:before {
+			position: absolute;
+			right: 7px;
+			top: 0;
+			font-size: 18px;
+			display: block;
+			font-family: FontAwesome;
+			display: inline-block;
+			padding-right: 3px;
+			vertical-align: middle;
+			font-size: .756em;
+			color: #405189
+			}
+			::-webkit-scrollbar {
+			width: 4px
+			}
+			
+			span.badge-add {
+			background-color: #e62e2e;
+			position: absolute;
+			transform: scale(.7);
+			transform-origin: top right;
+			right: 10px;
+			margin-top: -0px;
+			}
+			.notifications {
+			width: 300px;
+			opacity: 1;
+			overflow: auto;
+			position: absolute;
+			top: 42px;
+			right: 1%;
+			border-radius: 5px 0px 5px 5px;
+			background-color: #fff;
+			box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 2px 8px 0 rgb(0 0 0 / 19%);
+			max-height: 250px;
+			}
+			#personImg{
+			    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+	margin: auto;
+			}
+			.notifications h2 {
+			font-size: 14px;
+			padding: 10px;
+			border-bottom: 1px solid #eee;
+			color: #999
+			}
+			
+			.notifications h2 span {
+			color: #f00
+			}
+			
+			.notifications-item {
+			display: flex;
+			border-bottom: 1px solid #eee;
+			padding: 6px 9px;
+			margin-bottom: 0px;
+			cursor: pointer
+			}
+			
+			.notifications-item:hover {
+			background-color: #eee
+			}
+			
+			.notifications-item img {
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-right: 9px;
+			border-radius: 50%;
+			margin-top: 2px
+			}
+			
+			.notifications-item .text h4 {
+			color: #777;
+			font-size: 16px;
+			margin-top: 3px
+			}
+			
+			.notifications-item .text p {
+			color: #aaa;
+			font-size: 12px
+			}
+			::-webkit-scrollbar {
+			width: 4px
+			}
+			
+			::-webkit-scrollbar-thumb {
+			border-radius: 7px;
+			background: transparent;
+			background: #aafafa;
+			}
+			
+			::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 1px grey;
+			background: #fafafa;
+			}
+			.activitiesTime {
+			font-size: 12px;
+			color: #848485;
+			line-height: 18px;
+			}
+			
+			.scroll-area {
+			overflow-x: hidden;
+			height: 250px;
+			text-align: left;
+			}
+			
+			.vertical-timeline {
+			width: 100%;
+			position: relative;
+			padding: 1.5rem 0 1rem
+			}
+			
+			.vertical-timeline::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 31px;
+			height: 100%;
+			width: 3px;
+			background: #e9ecef;
+			border-radius: .25rem;
+			}
+			
+			.vertical-timeline-element {
+			position: relative;
+			margin: 0 0 1.5rem;
+			}
+			
+			.vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
+			visibility: visible;
+			animation: cd-bounce-1 .8s
+			}
+			
+			.vertical-timeline-element-icon {
+			position: absolute;
+			top: 0;
+			left: 23px;
+			}
+			
+			
+			
+			.badge-dot-xl {
+			width: 18px;
+			height: 18px;
+			position: relative
+			}
+			
+			.badge:empty {
+			display: none
+			}
+			
+			.badge-dot-xl::before {
+			content: '';
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -5px 0 0 -5px;
+			background: #fff
+			}
+			
+			.vertical-timeline-element-content {
+			position: relative;
+			margin-left: 54px;
+			font-size: .8rem;
+			}
+			
+			.vertical-timeline-element-content .timeline-title {
+			font-size: 13px;
+			margin: 0 0 .5rem;
+			padding: 2px 0 0;
+			}
+			
+			.vertical-timeline-element-content .vertical-timeline-element-date {
+			display: block;
+			position: absolute;
+			left: -90px;
+			top: 0;
+			padding-right: 10px;
+			text-align: right;
+			color: #adb5bd;
+			font-size: .7619rem;
+			white-space: nowrap
+			}
+			
+			.chart-text {
+			font: 16px/1.4em "Montserrat", Arial, sans-serif;
+			fill: #000;
+			-moz-transform: translateY(0.25em);
+			-ms-transform: translateY(0.25em);
+			-webkit-transform: translateY(0.25em);
+			transform: translateY(0.25em);
+			}
+			.chart-number {
+			font-size: 0.6em;
+			line-height: 1;
+			text-anchor: middle;
+			-moz-transform: translateY(-0.25em);
+			-ms-transform: translateY(-0.25em);
+			-webkit-transform: translateY(-0.25em);
+			transform: translateY(-0.25em);
+			}
+			.chart-label {
+			font-size: 0.2em;
+			text-transform: uppercase;
+			text-anchor: middle;
+			-moz-transform: translateY(0.7em);
+			-ms-transform: translateY(0.7em);
+			-webkit-transform: translateY(0.7em);
+			transform: translateY(0.7em);
+			}
+			.tabelForm {
+			/* border: 1px solid #D3DAE6; */
+			padding: 10px;
+			text-align: center;
+			-webkit-box-shadow: 0 2px 2px -1px rgb(152 162 179 / 30%), 0 1px 5px -2px rgb(152 162 179 / 30%);
+			box-shadow: 0 2px 2px -1px rgb(152 162 179 / 30%), 0 1px 5px -2px rgb(152 162 179 / 30%);
+			background-color: #FFF;
+			/* border: 1px solid #D3DAE6; */
+			border-radius: 5px;
+			}
+			
+			
+			
+			.line-navbar {
+			list-style: none;
+			margin: 0 0 3px;;
+			padding: 0;
+			text-align: center;
+			}
+			
+			.line-navbar li { 
+			display: inline-block; 
+			border-right: 1px solid #ccc;
+			
+			}
+			
+			.line-navbar li:last-of-type { 
+			border-right: none; 
+			}
+			
+			.line-navbar .iconBlock {
+			display: block;
+			padding: 0 10px;
+			text-decoration: none;
+			color: #777;
+			font: 0.75em Helvetica, Arial, sans-serif;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			outline: none;
+			}
+			
+			.line-navbar .iconBlock:hover {
+			color: #98d9e9;
+			}
+			i.fa-style {
+			font-size: 18px;
+			
+			}
+			.gfg_flex {
+			display: flex;
+			width: 60%;
+			justify-content: flex-start;
+			}
+			
+			
+			
+			
+			tr.tableComm {
+			height: 30%;
+			/* border: 1px solid red; */
+			/* border-collapse: collapse; */
+			vertical-align: top;
+			border-top: 1px solid #D3DAE6;
+			}
+			
+			.messagContener {
+			width: 100%;
+			overflow: auto;
+			border-collapse: collapse;
+			border-spacing: 0;
+			display: flex;
+			justify-content: left;
+			flex-direction: column;
+			text-align: left;
+			height: calc(100% - 60px);
+			align-items: start;
+			border-top: 1px solid #D3DAE6;
+			}
+			
+			.communicationItem {
+			width: 100%;
+			padding: 13px 17px;
+			vertical-align: top;
+			border-top: 1px solid #D3DAE6;
+			border-bottom: 1px solid #D3DAE6;
+			}
+			
+			.communicationTitle {
+			font-weight: 600;
+			padding-bottom: 5px;
+			}
+			* {
+			box-sizing: border-box;
+			}
+			.menu {
+			top: 74;
+			left: 0;
+			z-index: 99;
+			position: fixed;
+			background: #ebebeb;
+			height: calc(100% - 3rem);
+			-webkit-box-shadow: 0 2px 2px -1px rgb(152 162 179 / 30%), 0 1px 5px -2px rgb(152 162 179 / 30%);
+			border: 1px solid #D3DAE6;
+			border-radius: 5px;
+			width: 350px;
+			}
+			
+			.main {
+			float: left;
+			padding-top: 3rem;
+			background: #ececec;
+			width: 100%;
+			}
+			.right {
+			background-color:#e5e5e5;
+			float:left;
+			width:20%;
+			padding:15px;
+			margin-top:7px;
+			text-align:center;
+			}
+			th {
+			
+			vertical-align: top!important;
+			font-weight: 400;
+			padding: 3px 10px!important;
+			height: 30px
+			}
+			.dropbtn {
+			background-color: #4CAF50;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			}
+			
+			/* Dropdown button on hover & focus */
+			.dropbtn:hover, .dropbtn:focus {
+			background-color: #3e8e41;
+			}
+			
+			/* The search field */
+			#myInput {
+			box-sizing: border-box;
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			border: none;
+			width: 100%;
+			border-bottom: 1px solid #ddd;
+			padding: 5px 6px;
+			}
+			
+			/* The search field when it gets focus/clicked on */
+			#myInput:focus {outline: 3px solid #ddd;}
+			
+			/* The container <a> - needed to position the dropdown content */
+				.dropdown {
+				position: relative;
+				display: inline-block;
+				}
+				
+				/* Dropdown Content (Hidden by Default) */
+				.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f6f6f6;
+				min-width: 280px;
+				border: 1px solid #ddd;
+				z-index: 1;
+				}
+				
+				/* Links inside the dropdown */
+				.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				}
+				
+				.dropdown-content a:hover {background-color: #f1f1f1}
+				
+				.show {display:block;}
+				
+				a {
+				color: #000 !important;
+				text-decoration: none!important;
+				cursor: default!important;
+				}
+				th.titelTable {
+				font-weight: 600;
+				padding: 1px 0 12px!important;
+				font-size: 15px;
+				text-transform: uppercase;
+				text-align: center;
+				}
+				.infoCamp th {
+				height: 40px
+				} 
+				li.recom {
+				padding: 4px;
+				font-size: 14px;
+				list-style-type: none;
+				border: 1px solid #D3DAE6;
+				-ms-flex-wrap: wrap;
+				width: 46%;
+				height: 80px;
+				margin: 5px 0;
+				}
+				
+				
+				i.fa-in-cercle {
+				font-size: 30px;
+				top: 50%;
+				left: 50%;
+				position: absolute;
+				transform: translate(-50%, -50%);
+				color: #05263d;
+				}
+				.contener-of-offers {
+				width: calc(100% - 70px);
+				margin-left: auto;
+				align-self: center;
+				text-align: right;
+				padding: 5px;
+				font-size: 10px;
+				}
+				td {
+				padding: 0;
+				vertical-align: top;
+				}
+				.titleBlock {
+				font-weight: 600;
+				padding: 1px 0 10px!important;
+				font-size: 11px;
+				text-transform: uppercase;
+				text-align: center;
+				width: 100%;
+				position: relative;
+				}
+				li.shortTab {
+				width: 31%;
+				margin: 1%;
+				}
+				.NoDisplay {
+				display: none!important;
+				}
+				table.mainTable {
+				width: 100%;
+				text-align: center;
+				border-spacing: 18px;
+				overflow: auto;
+				height: calc(100% - 82px);
+				border-collapse: unset;
+				}
+				table.ShortTable {
+				width: calc(100% - 350px);
+				margin-left: 350px;
+				}
+				li.longTabl {
+				width: 90%;
+				}
+				.ContentCenter{
+				justify-content: center;
+				}
+				.highlightingTitle{
+				background: #fafafa;
+				border-right: 1px solid #D3DAE6;
+				}
+				.titleRight {
+				margin-left: auto;
+				}
+				.leftSideHeader {
+				display: flex;
+				justify-content: space-between;
+				height: 55px;
+				padding: 0px 10px;
+				margin-bottom: 0px;
+				}
+				.borderCollapse{border-collapse: collapse;}
+				li.recom:hover{background:#f9f9f9;}
+				li.active button {
+				color: #98d9e9!important;
+				
+				}
+				.titleBlockButton:before {
+				
+				position: absolute;
+				right: 7px;
+				top: 0;
+				font-size: 11px;
+				display: block;
+				font-family: FontAwesome;
+				display: inline-block;
+				padding-right: 3px;
+				vertical-align: middle;
+				}
+				.titleBlockButton:before {
+				content: "\f009";
+				}
+				
+				.titleBlock.titleBlockButton:before {
+				content: "\f065";
+				}
+				.fourth {
+				width: 24.67%;
+				}
+				.third{width: 33%;}
+			</style>
+			<script src="https://kit.fontawesome.com/9b7fc0cbc2.js" crossorigin="anonymous"></script>
+			<!-- Optional theme -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+			
+			<link rel="stylesheet" href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css'>
+			
+		</head>
+	
+	<body class="">
+			
+			<div style="background-color: #024e85;overflow: hidden;color: #ffffff;font-family: 'AvenirNext',Helvetica,Arial,sans-serif;height: 3rem;text-align:center;width: 100%;left: 0;z-index: 199;position: fixed;">
+				<div style="
+				margin: auto;
+			    padding: 0px 1rem;
+			    text-align: center;
+			    font-size: 11pt;
+			    text-align: left;
+			    line-height: 3rem;
+			    margin: 0px 20px;
+				">Assisto Consulting oCRM mockup </div>
+			</div>
+			
+			<div style="width: 100%;">
+				
+				
+				
+				<div class="main"><div style="height: 45px;background: #ffffff;display: flex;padding: 7px 10 7px 0px;width: 100%;box-shadow: 0 2px 2px -1px rgb(152 162 179 / 30%), 0 1px 5px -2px rgb(152 162 179 / 30%);background-color: #FFF;border-bottom: 1px solid #D3DAE6;position: fixed;z-index: 100;"><nav style="
+					align-self: flex-end;
+					width: 350;
+					"><div class="leftSideHeader" style="
+						"><div class="gfg_flex" style="
+							align-self: flex-end;
+							">
+								<ul class="line-navbar">
+									<li class="">
+									</li>
+									<li class="">
+									<button id="ActivListTab" data-toggle="tab" href="#ActivList" role="tab" aria-controls="ActivList" aria-selected="false" aria-expanded="true" class="iconBlock nav-link" style=""><i class="fa-clock fa-style far" aria-hidden="true"></i></button></li>
+									
+									
+									<li class="nav-item">
+										<button id="chatListTab" data-toggle="tab" href="#chatList" role="tab" aria-controls="chatList" aria-selected="false" aria-expanded="false" class="iconBlock"><i class="fa-envelope fa-style far" aria-hidden="true"></i></button></li><li>
+										<button class="iconBlock" style="
+									"><i class="fa-address-book fa-style far" aria-hidden="true"></i></button></li>
+									
+									
+								</ul>
+							</div>
+							<div style="
+							margin: 7;
+							align-self: flex-end;
+							">
+								<a class="iconBlock NoDisplay" id="hideArea" style="
+								"> <i aria-hidden="true" class="fas fa-bars"></i> </a>
+							</div>
+							
+						</div></nav>
+						<div id="NameComp" style="
+						align-self: flex-end;
+						font-size: 14px;
+						padding: 0 30px;
+						line-height: 22px;
+						text-transform: uppercase;
+						" class="titleRight"></div><div id="searchFild" class="" style="
+						width: 150px;
+						right: 10px;
+						align-self: flex-end;
+						"><div class="input-group" style="
+							display: block;
+							height: 22px;
+							"> <input href="#" id="searchInn" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" class="form-control input-text" placeholder="ИНН" aria-label="Recipient's username" aria-describedby="basic-addon2" style="height: 100%;width: 110px;padding: 3px 6px;font-size: 11px;">
+								<ul class="dropdown-menu dropdown-menu-right notification-dropdown" style="
+								padding: 0;
+								border: none;
+								">
+									
+								</ul>
+								<div class="input-group-append" style="
+								height: 100%;
+								"> <button id="innSearchButton" type="button" style="
+									height: 100%;
+									background-color: #eee;
+									border: 1px solid #ccc;
+									border-radius: 4px;
+									border-bottom-left-radius: 0;
+									border-top-left-radius: 0;
+									border-left: 0;
+									outline: none;
+								"><i class="fa fa-search fa-style" aria-hidden="true"></i></button> </div>
+							</div>
+						</div>
+						
+						<div class="dropdown" style="
+						padding: 0 20px 0 0;
+						align-self: flex-end;
+						">
+							<button id="buttonSearch" class="dropbtn" style="
+							padding: 0px;
+							background-color: #ffffff;
+							color: #777;
+							outline: none;
+							"><i class="far fa-address-card" aria-hidden="true" style="
+								font-size: 22px;
+							"></i></button>
+							<div id="myDropdown" class="dropdown-content text-lg" style="
+							right: 0px;
+							
+							">
+								<input type="text" placeholder="Search.." id="myInput">
+								<div></div>
+								
+							</div></div><div class="dropdown" style="
+							padding: 0 20px 0 0;
+							align-self: flex-end;
+							">
+								<button id="bell" class="dropbtn" style="
+								padding: 0px;
+								background-color: #ffffff;
+								color: #777;
+								outline: none;
+								"><i class="far fa-bell" aria-hidden="true" style="
+									font-size: 22px;
+									"><span class="badge badge-add" style="
+										background-color: #e62e2e;
+										position: absolute;
+										transform: scale(.7);
+										transform-origin: top right;
+										right: 10px;
+										margin-top: -0px;
+									">3+</span></i></button>
+									<div class="notifications NoDisplay" id="box">
+										<h2>Notifications - <span>2</span></h2>
+										<div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
+											<div class="text">
+												<h4>Samso aliao</h4>
+												<p>Samso Nagaro Like your home work</p>
+											</div>
+										</div>
+										<div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+											<div class="text">
+												<h4>John Silvester</h4>
+												<p>+20 vista badge earned</p>
+											</div>
+										</div>
+									</div>
+							</div><div class="dropdown" style="
+							padding: 0 20px 0 0;
+							align-self: flex-end;
+							">
+								<button id="addRecom" class="iconBlock" style="
+    outline: none;
+"><i class="fas fa-th-large fa-style" aria-hidden="true"></i></button>
+									<div class="notifications NoDisplay" id="box">
+										<h2>Notifications - <span>2</span></h2>
+										<div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
+											<div class="text">
+												<h4>Samso aliao</h4>
+												<p>Samso Nagaro Like your home work</p>
+											</div>
+										</div>
+										<div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+											<div class="text">
+												<h4>John Silvester</h4>
+												<p>+20 vista badge earned</p>
+											</div>
+										</div>
+									</div>
+							</div>
+							
+				</div>
+				<div id="Additional-Section" class="menu tab-content NoDisplay" style="">
+					<div id="ActivList" role="tabpanel" aria-labelledby="ActivListTab" class="messagContener tab-pane fade w-full p-2 active in"> <div class="relative"> <input type="text" class="w-full h-12 rounded focus:outline-none px-3 focus:shadow-md" placeholder="Search..."> <i class="fa fa-search absolute right-3 top-4 text-gray-300" aria-hidden="true"></i> </div>
+						<ul>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="ml-3 flex flex-col" style="align-self: self-start;"> <span class="text-gray-600 text-lg" style="
+								">13:00<br> 25.03.2021</span>  </div>
+								<div class="flex ml-2"> 
+									<div class="flex flex-col ml-4"> <span class="text-xl text-lg" style="
+										text-overflow: ellipsis;
+										overflow: hidden;
+										margin-bottom: 5px;
+									"><span class="font-medium">Встреча:</span> Oбсуждаем насущные вещи</span> <span class="text-lg text-gray-400 "><span class="font-medium">Результат:</span> Договоренность выслать материалы по продукту "Тендерная поддержка"</span> </div>
+								</div>
+								<div class="flex flex-col items-center" style="
+								/* text-align: right; */
+								">   </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="ml-3 flex flex-col" style="align-self: self-start;"> <span class="text-gray-600 text-lg" style="
+								">10:02<br> 27.02.2021</span>  </div>
+								<div class="flex ml-2"> 
+									<div class="flex flex-col ml-4"> <span class="text-xl text-lg" style="
+										text-overflow: ellipsis;
+										overflow: hidden;
+										margin-bottom: 5px;
+									"><span class="font-medium">Звонок</span> </span> <span class="text-lg text-gray-400 "><span class="font-medium">Результат:</span> Договоренность о встрече 28.05.21</span> </div>
+								</div>
+								<div class="flex flex-col items-center" style="
+								/* text-align: right; */
+								">   </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="ml-3 flex flex-col" style="align-self: self-start;"> <span class="text-gray-600 text-lg" style="
+								">16:21<br> 23.02.2021</span>  </div>
+								<div class="flex ml-2"> 
+									<div class="flex flex-col ml-4"> <span class="text-xl text-lg" style="
+										text-overflow: ellipsis;
+										overflow: hidden;
+										margin-bottom: 5px;
+									"><span class="font-medium">Исх. Почта</span></span> <span class="text-lg text-gray-400 "><span class="font-medium">Результат:</span> Отправлен счет на e-mail: Pavel.Ovetyn@test.ru </span> </div>
+								</div>
+								<div class="flex flex-col items-center" style="
+								/* text-align: right; */
+								">   </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="ml-3 flex flex-col" style="align-self: self-start;"> <span class="text-gray-600 text-lg">17:00<br> 20.02.2021</span>  </div>
+								<div class="flex ml-2"> 
+									<div class="flex flex-col ml-4"> <span class="text-xl text-lg" style="
+										text-overflow: ellipsis;
+										overflow: hidden;
+										margin-bottom: 5px;
+									"><span class="font-medium">Встреча:</span> Oбсуждаем насущные вещи</span> <span class="text-lg text-gray-400 "><span class="font-medium">Результат:</span>Продажа продукта "Кредитная линия"</span> </div>
+								</div>
+								<div class="flex flex-col items-center" style="
+								/* text-align: right; */
+								">   </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="ml-3 flex flex-col" style="align-self: self-start;"> <span class="text-gray-600 text-lg" style="
+								">12:00<br> 19.02.2021</span>  </div>
+								<div class="flex ml-2"> 
+									<div class="flex flex-col ml-4"> <span class="text-xl text-lg" style="
+										text-overflow: ellipsis;
+										overflow: hidden;
+										margin-bottom: 5px;
+									"><span class="font-medium">Звонок</span></span> <span class="text-lg text-gray-400 "><span class="font-medium">Результат:</span> Договоренность о встрече 20.05.2021</span> </div>
+								</div>
+								<div class="flex flex-col items-center" style="
+								/* text-align: right; */
+								">   </div>
+							</li>
+							
+						</ul>
+					</div>
+					
+					<div id="chatList" role="tabpanel" aria-labelledby="chatListTab" class="w-full p-2 tab-pane fade">
+						<div class="relative"> <input type="text" class="w-full h-12 rounded focus:outline-none px-3 focus:shadow-md" placeholder="Search..."> <i class="fa fa-search absolute right-3 top-4 text-gray-300" aria-hidden="true"></i> </div>
+						<ul>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/aq39RMA.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Воронцова Ника</span> <span class="text-sm text-gray-400 truncate w-32">Привет, высылаю тебе новый</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">11:26</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/eMaYwXn.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Борисова Елена</span> <span class="text-sm text-gray-400 truncate w-32">Я отправлю тебе документ когда смогу</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">12:26</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/zQZSWrt.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Сорокина Мария</span> <span class="text-sm text-gray-400 truncate w-32">Мы собираемся поехасть на следующей недели</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">8:26</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/agRGhBc.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Орлов Никита</span> <span class="text-sm text-gray-400 truncate w-32">Я собираюсь открыть новое направление</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">7:16</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/uIgDDDd.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Андреев Михаил</span> <span class="text-sm text-gray-400 truncate w-32">Нам нужно начать состалять</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">9:26</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+							<li class="flex justify-between items-center bg-white mt-2 p-2 hover:shadow-lg rounded cursor-pointer transition">
+								<div class="flex ml-2"> <img src="https://i.imgur.com/tT8rjKC.jpg" width="40" height="40" class="rounded-full">
+									<div class="flex flex-col ml-2"> <span class="font-medium text-black">Аникин Марк</span> <span class="text-sm text-gray-400 truncate w-32">Да</span> </div>
+								</div>
+								<div class="flex flex-col items-center"> <span class="text-gray-300">3:26</span> <i class="fa fa-star text-green-400" aria-hidden="true"></i> </div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<table class="mainTable" style="
+				margin-top: 45px;
+				height: calc(100% - 75px);
+				">
+					<tbody>
+						
+						
+						<tr>
+							
+							<td class="fourth" style="
+							text-align: left;
+							background: #ffffff;
+							border-radius: 0 0 4px 4px;
+							"><div>
+								<div class="b-b b-theme nav-active-theme mb-3" style="
+								width: 100%;
+								">
+									<ul class="nav nav-tabs" id="myTab" role="tablist" style="
+									border-collapse: collapse;
+									background: #ececec;
+									">
+										
+										<li class="nav-item" style="
+										float: left;
+										"><a class="nav-link" id="activityHistory-tab" data-toggle="tab" href="#activityHistory" role="tab" aria-controls="activityHistory" aria-selected="false" aria-expanded="false"><div class="longtext">History</div><i class="NoDisplay shortTitle fas fa-history" aria-hidden="true"></i></a></li><li class="nav-item active" style="
+										float: left;
+										"><a class="titleNav" id="campaignInfo-tab" data-toggle="tab" href="#campaignInfo" role="tab" aria-controls="campaignInfo" aria-selected="false" aria-expanded="true" style="
+										"><div class="longtext ">Company info</div><i class="NoDisplay shortTitle fas fa-info-circle" aria-hidden="true"></i></a></li>
+										
+									</ul>
+								</div>
+								<div class="tab-content mb-4" style="padding: 10px;">
+									
+									<div class="tab-pane fade active in" id="campaignInfo" role="tabpanel" aria-labelledby="campaignInfo-tab" style="
+									height: 250px;
+									">
+										<table id="info-about-camp" width="100%" class="infoCamp" style="
+										font-size: 12px;
+										"></table>
+									</div>
+									<div class="tab-pane fade" id="activityHistory" role="tabpanel" aria-labelledby="activityHistory-tab">
+										<div class="scroll-area"></div>     
+									</div>
+								</div>
+							</div>
+							
+							</td><td id="recommProductBlock" style="
+							position: relative;
+							/* background-color: #f1f0f0; */
+							" class="tabelForm fourth">
+								
+								
+								<div class="titleBlock">
+								Offers</div>
+								<ul id="recommendedProducts" style="
+								text-align: left;
+								display: flex;
+								-ms-flex-wrap: wrap;
+								flex-wrap: wrap;
+								width: 100%;
+								padding-left: 0;
+								margin-bottom: 0;
+								" class="ContentCenter"></ul>
+							</td><td class="tabelForm fourth" style="
+							position: relative;
+							/* background-color: #f1f0f0; */
+							">
+								
+								
+								<div class="titleBlock">
+								Owned products</div>
+								<ul id="ProductOwnership" style="
+								text-align: left;
+								display: flex;
+								-ms-flex-wrap: wrap;
+								flex-wrap: wrap;
+								width: 100%;
+								padding-left: 0;
+								margin-bottom: 0;
+								" class="ContentCenter"></ul>
+							</td>
+							<td rowspan="2" class="fourth" style="vertical-align: top;/* position: fixed; */height: calc(100%-1%);"><div class="tabelForm" style="
+    height: 100%;
+"><div style="
+								display: flex;
+								flex-direction: column;
+								/* justify-content: flex-start; */
+								align-items: flex-start;
+								/* align-items: start; */
+								"><div class="titleBlock">Contact person info</div>
+									<div style="
+									/* height: 150px; */
+									padding: 15px 30px;
+									align-self: center;
+									"><div id="personImg"></div><div id="namePepson"></div></div>
+									<div class="titleBlock">Overview</div>
+									<table id="generalInformation" style="width:100%;min-height: 100px;font-size: 12px;margin: 5px 0;"></table><div class="titleBlock">Segmentation</div>
+								<table id="psychographicSegmentation" style="font-size: 12px;margin: 5px 0 10;min-height: 100px;"></table></div></div></td>
+								
+						</tr>
+						
+						
+						
+						<tr style="
+						">
+							<td id="analiseInfoBlock" colspan="3" style="/* height: calc(100%); */" class="tabelForm"><div class="tabelForm" style="
+								min-height: 400px;
+								"><div class="titleBlock titleBlockButton" data-toggle="modal" data-target="#exampleModalAnalis" style="
+									cursor: pointer;
+									">
+									Customer insights</div>
+									<div id="analiseInfo"></div>
+								</div>
+							</td></tr>
+					</tbody></table>
+					
+				</div>
+			</div>
+			
+			
+			
+						
+						
+						<script> $(document).ready(function() {
+							$(function() {
+								
+								$('#datetimepicker7').datetimepicker({
+									useCurrent: false //Important! See issue #1075
+								});
+								
+								
+							});
+						}); </script>
+						
+						
+						<script src="script4.js"></script>
+						
+						
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true" style="display: none;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header borderCollapse" style="
+									background: #024e85;
+									padding: 8px;
+									"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>
+									<div class="text-left align-items-center mid">
+										
+										<div class="modal-body pb-2">
+											<h5 id="productNameModal" style="
+											color: #0378cd;
+											"></h5> <div><ul id="productDescriptionModal" style="
+												padding-inline-start: 0px;
+												">
+													
+												</ul>
+											</div>
+											
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="modal fade" id="exampleModalAnalis" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" style="display: none;">
+							<div class="modal-dialog" style="
+							width: 90%;
+							position: relative;
+							">
+								<div class="modal-content" style="
+								width: auto;
+								position: relative;
+								">
+									<div class="modal-header borderCollapse" style="
+									background: #024e85;
+									padding: 8px;
+									width: auto;
+									"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>
+									<div id="analiseModal" style="
+									position: revert;
+									">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+	
+			</body>
+	
+	</html>		
